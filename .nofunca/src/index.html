@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://unpkg.com/flowbite@1.4.7/dist/datepicker.js"></script> -->
+    <link rel="stylesheet" href="../public/style.css">
+    <title>RentIt</title>
+</head>
+
+<body>
+    <div class="main">
+        <nav class="bg-white border-1 border-slate-500">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div class="relative flex items-center justify-between h-16">
+                    <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                        <!-- Mobile menu button-->
+                        <button type="button"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Abrir menu principal</span>
+                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+
+                            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                        <div class="flex-shrink-0 flex items-center">
+                            <img class="block lg:hidden h-8 w-auto"
+                                src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+                            <img class="hidden lg:block h-8 w-auto"
+                                src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                                alt="Workflow">
+                        </div>
+                        <div class="hidden sm:block sm:ml-6">
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-slate-200 text-black px-3 py-2 rounded-md text-sm font-medium"
+                                    aria-current="page">Flota</a>
+                                <a href="#"
+                                    class="bg-slate-200 text-black  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Nosotros</a>
+                                <a href="#"
+                                    class="bg-slate-200 text-black  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <button type="button"
+                            class="bg-slate-200 hover:bg-gray-700 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700">
+                            <span class="sr-only">Ver notificaciones</span>
+                            <!-- Heroicon name: outline/bell -->
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                        </button>
+
+                        <!-- Profile dropdown -->
+                        <div class="ml-3 relative">
+                            <div>
+                                <button type="button"
+                                    class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                    id="user-menu-button" onclick="userMenu()" aria-expanded="false"
+                                    aria-haspopup="true">
+                                    <span class="sr-only">Menu de usuario</span>
+                                    <img class="h-8 w-8 rounded-full"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                        alt="">
+                                </button>
+                            </div>
+
+                            <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md hidden shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                id="user-menu-dd" role="menu" aria-orientation="vertical"
+                                aria-labelledby="user-menu-button1" tabindex="-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                    id="user-menu-item-0">Perfil</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                    id="user-menu-item-1">Configuración</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                    id="user-menu-item-2">Cerrar sesion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="sm:hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+                        aria-current="page">Flota</a>
+                    <a href="#"
+                        class="text-gray-900 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nosotros</a>
+                    <a href="#"
+                        class="text-gray-900 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Conctacto</a>
+                </div>
+            </div>
+        </nav>
+        <!-- Fin Nav -->
+
+        <!-- Contenido -->
+        <div class="pb-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-transparent">
+                <div class="lg:text-center pb-6">
+                    <p class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">RentIt</p>
+                    <h2 class="text-base text-xl text-indigo-600 font-extrabold tracking-wide">Alquiler de autos en San
+                        Carlos de Bariloche</h2>
+                    <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Recorré la bellísima ciudad de Bariloche,
+                        conocé su patrimonio histórico, arquitectónico, cultural y enamorate de todos sus paisajes!</p>
+                </div>
+
+                <div class="mt-10">
+                    <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:shrink-0">
+                        <!-- Texto encabezado izquierda -->
+                        <div class="relative">
+                            <h2
+                                class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:align-middle align-middle md:pt-20">
+                                <span class="block align-middle">Listo para explorar?</span>
+                                <span class="block text-indigo-600 text-2x2 align-text-bottom">Reserva tu auto
+                                    hoy!</span>
+                            </h2>
+                        </div>
+
+                        <!-- Formulario reserva -->
+                        <form id="bookingForm">
+                            <div class="relative bg-white px-5 pb-5 pt-2 rounded-md">
+                                <div class="flex flex-col my-3">
+                                    <label for="lugarEntrega"
+                                        class="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">Lugar de
+                                        entrega</label>
+                                    <input id="lugarEntrega" autocomplete="off"
+                                        class="bg-gray-200 text-gray-500 border border-gray-200 sm:text-sm rounded-full sm:text-sm focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-2.5"
+                                        placeholder="Bariloche" value="Bariloche" disabled />
+                                </div>
+
+                                <div class="flex flex-col my-3">
+                                    <label for="modelInput"
+                                        class="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">Modelo</label>
+                                    <select id="modelInput" name="modelInput"
+                                        class="bg-white border border-gray-200 text-gray-600 rounded-full border border-gray-300 focus:ring-gray-500 focus:border-gray-500 active:ring-gray-500 active:border-gray-500 block w-full px-4 py-2.5"
+                                        id="grid-state">
+
+                                    </select>
+                                </div>
+
+                                <div class="flex flex-col my-3">
+                                    <label for="quantityInput"
+                                        class="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">Cantidad
+                                        de vehiculos</label>
+                                    <input id="quantityInput" name="quantityInput"
+                                        class="text-gray-600 bg-white border border-gray-300 sm:text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block w-full px-4 py-2.5"
+                                        placeholder="Ingrese la cantidad de vehiculos" value="1" />
+                                </div>
+
+                                <div class="flex flex-col my-3">
+                                    <label for="daysInput"
+                                        class="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">Cantidad
+                                        de días</label>
+                                    <input id="daysInput" name="daysInput"
+                                        class="text-gray-600 bg-white border border-gray-300 sm:text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block px-4 py-2.5"
+                                        placeholder="Ingrese la cantidad de dias" />
+                                </div>
+
+                                <div class="flex flex-col my-3">
+                                    <label for="voucher"
+                                        class="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">Tiene un cupón de descuento?</label>
+                                    <input id="voucherInput" name="voucherInput"
+                                        class="text-gray-600 bg-white border border-gray-300 sm:text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block px-4 py-2.5"
+                                        placeholder="Ingreselo aqui" />
+                                </div>
+
+                                    <!-- Desde / Hasta 
+                                <label for="lugarEntrega" class="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">Desde / Hasta</label>
+
+                                <div date-rangepicker datepicker-format="dd/mm/yyyy" datepicker-orientation="top right" class="flex flex-col space-y-2 my-2">
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <input name="start" type="text"
+                                            class="text-gray-600 bg-white border border-gray-300 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                                            placeholder="Desde">
+                                    </div>
+                                    
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                        <input name="end" type="text"
+                                            class="text-gray-600 bg-white border border-gray-300 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                                            placeholder="Hasta">
+                                    </div>
+                                </div>
+                                -->
+
+                                <!-- Botones formulario -->
+                                <div class="flex flex-col mt-5">
+                                    <div class="sm:flex sm:flex-row-reverse">
+                                        <button type="submit"
+                                            class="w-full inline-flex justify-center rounded-full border border-transparent shadow-sm px-4 py-2 bg-cyan-500 text-base font-medium text-white hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-200 sm:ml-3 sm:w-auto sm:text-sm">Reservar</button>
+                                        <button type="button" id="clearFormBtn"
+                                            class="mt-3 w-full inline-flex justify-center rounded-full border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Limpiar</button>
+                                    </div>
+                                </div>
+
+                                <!-- Mensaje -->
+                                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 mt-5 flex-grow rounded hidden"
+                                    role="alert" id="msj">
+                                    <span class="block sm:inline font-medium" id="msjmsj"></span>
+                                    <strong class="font-bold font-medium" id="msjfinal"></strong>
+                                </div>
+
+                                <!-- Mensaje -->
+                                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-5 flex-grow rounded hidden"
+                                    role="alert" id="errormsj">
+                                    <span class="block sm:inline font-medium" id="errormsjmsj"></span>
+                                    <strong class="font-bold font-medium" id="errormsjfinal"></strong>
+                                </div>
+
+                            </div>
+                        </form>
+                    </dl>
+                </div>
+            </div>
+
+            <div id="cards">
+                <!-- 
+            <section class="text-gray-600 body-font">
+                <div class="container max-w-7xl my-10 mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="p-5 flex items-center mx-auto bg-white border-b border-gray-200 rounded-lg sm:flex-row flex-col min-width-360">
+                        
+                        <div class="w-80 h-auto pr-10 pr-0 sm:pr-10 sm:w-60 inline-flex items-center justify-center flex-shrink-0">
+                            <img src="https://rently.blob.core.windows.net/hertz/CarModel/26756080-0e17-4e05-8e6a-fa67489347fe.jpg"/>
+                        </div>
+                        
+                        
+                        <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                            <h1 class="text-black text-2xl title-font font-bold mb-2">Toyota Etios Manual o similar</h1>
+                            <div class="inline-flex space-x-2">
+                                <img src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/undefined/external-speedometer-cars-components-those-icons-lineal-color-those-icons.png" class="inline-flex "/><p> Kilometraje ilimitado</p>
+                            </div>
+                            <div class="py-4">
+                                <div class=" inline-block mr-2" >
+                                    <div class="flex pr-2 h-full items-center space-x-2">
+                                        <img src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/undefined/external-safety-seat-cars-components-those-icons-lineal-color-those-icons.png"/>
+                                        <p class="title-font font-medium">5</p>
+                                    </div>
+                                </div>
+                                <div class="inline-block mr-2" >
+                                    <div class="flex  pr-2 h-full items-center space-x-2">
+                                        <img src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/undefined/external-fuel-cars-components-those-icons-lineal-color-those-icons.png"/>
+                                        <p class="title-font font-medium">Nafta</p>
+                                    </div>
+                                </div>
+                                <div class=" inline-block mr-2" >
+                                    <div class="flex  pr-2 h-full items-center space-x-2">
+                                        <img src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/undefined/external-gearshift-cars-components-those-icons-lineal-color-those-icons-3.png"/>
+                                        <p class="title-font font-medium">Manual</p>
+                                    </div>
+                                </div>
+                                <div class=" inline-block mr-2" >
+                                    <div class="flex  pr-2 h-full items-center space-x-2">
+                                        <img src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/24/undefined/external-abs-cars-components-those-icons-lineal-color-those-icons.png"/>
+                                        <p class="title-font font-medium">ABS</p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+
+                        
+                        <div class="sm:text-right text-center ml-0 mt-6 sm:mt-0 space-x-2 w-15 max-w-sm">
+                            <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-cyan-500 text-base font-medium text-white hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-200 sm:ml-3 sm:w-auto sm:text-sm">Alquilar</button>
+                            <a class="mt-3 text-indigo-500 inline-flex items-center">Mas info
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                                </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+             -->
+            </div>
+        </div>
+
+        <script src="main.js" type="module"></script>
+</body>
+
+</html>

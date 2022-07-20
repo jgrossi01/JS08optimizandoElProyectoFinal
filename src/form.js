@@ -48,7 +48,7 @@ function formValidate(event) {
   if (voucher) {
     voucherReturn = applyVoucher(voucher);
     if (!voucherReturn) {
-      clearMsj();
+      clearMsj(false,true);
       errors.push(`No encontramos el cupón ingresado.`);
     }
   }
@@ -152,7 +152,7 @@ function addMsj(msj, final = null) {
   }
 }
 
-function clearMsj(error = null) {
+function clearMsj(error = null, keepText = true) {
   let destiny1;
   let destiny2;
   if (error) {
@@ -160,7 +160,8 @@ function clearMsj(error = null) {
     destiny2 = errorMsjMsj;
   } else {
     destiny1 = msjFinal;
-    msjMsj.innerHTML = "";
+    if(!keepText) { msjMsj.innerHTML = "" }
+    
   }
   
   destiny1.innerHTML = "";

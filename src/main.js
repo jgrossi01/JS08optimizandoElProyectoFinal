@@ -47,7 +47,7 @@ quantityInput.addEventListener("keyup", () => {
 clearFormBtn.addEventListener("click", () => {
   localStorage.clear();
   bookingForm.reset();
-  clearMsj();
+  clearMsj(false,false);
   arrayReservations.length = 0;
   console.log(arrayReservations);
 });

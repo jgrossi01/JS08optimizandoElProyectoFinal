@@ -1,9 +1,3 @@
-/* 
-TODO
-- Mostrar carrito desde el objeto y storage!!
-
-*/
-
 import { formValidate, clearMsj } from "./form.js";
 import { createLi, loadCards, loadExistingValues } from "./content.js";
 import { arrayCars, arrayReservations } from "./class.js";

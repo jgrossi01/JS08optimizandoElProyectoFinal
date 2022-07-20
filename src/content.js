@@ -1,4 +1,6 @@
-import { arrayCars } from "./class.js";
+import { arrayCars, arrayReservations} from "./class.js";
+import { addMsj } from "./form.js";
+
 
 function createLi(selected = null) {
   const selection = document.getElementById("modelInput");
@@ -101,13 +103,27 @@ function loadCards() {
 }
 
 function loadExistingValues (){
-    const storageQuantity = JSON.parse( localStorage.getItem("quantityInput"));
-    const storageDays = JSON.parse( localStorage.getItem("daysInput"));
+    const storageQuantity = JSON.parse(localStorage.getItem("quantityInput"));
+    const storageDays = JSON.parse(localStorage.getItem("daysInput"));
+    const storageFinalQuantity = JSON.parse( localStorage.getItem("finalQty"));
+    const storageFinalTotal = JSON.parse( localStorage.getItem("finalTotal"));
+
     const quantityInput = document.getElementById("quantityInput");
     const daysInput = document.getElementById("daysInput");
 
     if(storageQuantity) {quantityInput.value = storageQuantity};
     if(storageDays) {daysInput.value = storageDays};
+
+    if(arrayReservations.length > 0) { 
+        
+        Array.from(arrayReservations).forEach(function(element) {
+            
+            addMsj(`Se agregó a tu carrito ${element.quantity} ${element.carname} por ${element.renteddays} días. Total parcial: ${element.total}`,false);
+            addMsj(`Reservó correctamente ${storageFinalQuantity} vehiculos por un total de \$${storageFinalTotal}`,true);
+        })
+    }
+    console.log(arrayReservations);
+
 }
 
 export { createLi, removeContent, loadCards, loadExistingValues };

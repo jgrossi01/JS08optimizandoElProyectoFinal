@@ -24,7 +24,9 @@ class Reservation {
     }
 }
 
-const arrayReservations = [];
+// Clase 12. Operador logico OR si existe x || tal cosa
+const arrayReservations = JSON.parse(localStorage.getItem('cart')) || [];
+
 const arrayCars = [];
 arrayCars.push(new Car (nextIndexOf(arrayCars),"Etios", "etios.png", 2000,4,"Nafta","Manual",false));
 arrayCars.push(new Car (nextIndexOf(arrayCars),"Corolla", "corolla.png", 3000,5,"Nafta","Automatico",true));

@@ -4,9 +4,9 @@ TODO
 
 */
 
-import { formValidate } from "./form.js";
+import { formValidate, clearMsj } from "./form.js";
 import { createLi, loadCards, loadExistingValues } from "./content.js";
-import { arrayCars } from "./class.js";
+import { arrayCars, arrayReservations } from "./class.js";
 
 window.addEventListener("DOMContentLoaded", (event) => {
 
@@ -47,6 +47,9 @@ quantityInput.addEventListener("keyup", () => {
 clearFormBtn.addEventListener("click", () => {
   localStorage.clear();
   bookingForm.reset();
+  clearMsj();
+  arrayReservations.length = 0;
+  console.log(arrayReservations);
 });
 
 // Ejecutamos la validacion del forumlario al ser enviado

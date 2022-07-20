@@ -108,6 +108,10 @@ function saveThis(name, quantityInput, daysInput, dayprice, total) {
   console.log(arrayReservations);
   finalQty = arrayReservations.reduce((a, b) => a + b["quantity"], 0);
   finalTotal = arrayReservations.reduce((a, b) => a + b["total"], 0);
+
+  localStorage.setItem("finalQty", JSON.stringify(finalQty));
+  localStorage.setItem("finalTotal", JSON.stringify(finalTotal));
+  localStorage.setItem("cart", JSON.stringify(arrayReservations));
   clearMsj(true);
 }
 
@@ -149,15 +153,18 @@ function addMsj(msj, final = null) {
 }
 
 function clearMsj(error = null) {
-  let destiny;
+  let destiny1;
+  let destiny2;
   if (error) {
-    destiny = errorMsjFinal;
+    destiny1 = errorMsjFinal;
+    destiny2 = errorMsjMsj;
   } else {
-    destiny = msjFinal;
+    destiny1 = msjFinal;
+    msjMsj.innerHTML = "";
   }
-  destiny.innerHTML = "";
-  destiny.innerHTML = "";
-  destiny.parentElement.classList.add("hidden");
+  
+  destiny1.innerHTML = "";
+  destiny1.parentElement.classList.add("hidden");
 }
 
-export { formValidate };
+export { formValidate, addMsj, clearMsj };
